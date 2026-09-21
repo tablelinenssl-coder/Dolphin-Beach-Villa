@@ -145,6 +145,21 @@ export const MinimalNavbar: React.FC = () => {
 
       </nav>
 
+      {/* Mobile Backdrop to close menu on outside tap */}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsMobileOpen(false)}
+            className="fixed inset-0 bg-black/25 backdrop-blur-[2px] md:hidden pointer-events-auto -z-10"
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Floating Frosted Glass Mobile Menu (Dropdown Card) */}
       <AnimatePresence>
         {isMobileOpen && (
@@ -153,7 +168,7 @@ export const MinimalNavbar: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-auto mt-2 rounded-[20px] bg-white/95 backdrop-blur-[24px] border border-white/95 p-6 shadow-2xl md:hidden text-[#0f172a]"
+            className="pointer-events-auto relative z-50 mt-2 rounded-[20px] bg-white/95 backdrop-blur-[24px] border border-white/95 p-6 shadow-2xl md:hidden text-[#0f172a]"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-[#e2e8f0]">

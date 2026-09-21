@@ -73,18 +73,6 @@ export const MinimalHero: React.FC = () => {
           {/* Left Column: Editorial Brand & Action Stack */}
           <div className="lg:col-span-6 flex flex-col gap-4 max-w-[540px] max-lg:max-w-none max-lg:items-center max-lg:text-center">
             
-            {/* Location Tag */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2e8f0] bg-white/80 backdrop-blur-xs text-[10px] font-mono tracking-widest uppercase font-bold text-[#64748b]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626] inline-block" />
-                Kalpitiya &middot; Sri Lanka
-              </div>
-            </motion.div>
-
             {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 14 }}
