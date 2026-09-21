@@ -51,6 +51,8 @@ export const MinimalLocation: React.FC = () => {
                 <img
                   src="/images/kalpitiya_map.jpg"
                   alt="Illustrated Map of Kalpitiya Peninsula showing Dolphin Beach Villa"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
                 />
 

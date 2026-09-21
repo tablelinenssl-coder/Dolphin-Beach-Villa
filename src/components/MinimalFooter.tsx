@@ -23,7 +23,7 @@ export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
   };
 
   return (
-    <footer id="contact" className="relative bg-[#fafaf7] text-[#0f172a] pt-16 pb-12 px-4 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
+    <footer id="contact" className="relative bg-[#fafaf7] text-[#0f172a] pt-16 pb-[max(3rem,env(safe-area-inset-bottom))] px-4 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
       <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Banner CTA */}
@@ -144,9 +144,27 @@ export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
           <p className="font-serif italic text-2xl text-[#0f172a] font-bold">
             See you by the sea.
           </p>
-          <p className="font-mono text-[9px] text-[#64748b] tracking-widest uppercase font-semibold">
-            &copy; {new Date().getFullYear()} Dolphin Beach Villa &middot; Kalpitiya, Sri Lanka
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const lenis = (window as any).__lenis;
+                if (lenis) {
+                  lenis.scrollTo(0, { duration: 1.5 });
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="text-xs font-sans text-[#64748b] hover:text-[#0f172a] active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+              aria-label="Scroll to top of page"
+            >
+              <span>Return to top</span>
+              <span className="font-mono text-sm">↑</span>
+            </button>
+            <p className="font-mono text-[9px] text-[#64748b] tracking-widest uppercase font-semibold">
+              &copy; {new Date().getFullYear()} Dolphin Beach Villa &middot; Kalpitiya, Sri Lanka
+            </p>
+          </div>
         </div>
 
       </div>

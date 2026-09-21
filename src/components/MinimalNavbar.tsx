@@ -68,7 +68,7 @@ export const MinimalNavbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 sm:px-6 pt-3.5 sm:pt-5 max-w-[1240px] mx-auto">
+    <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 sm:px-6 pt-[max(0.875rem,env(safe-area-inset-top))] sm:pt-5 max-w-[1240px] mx-auto">
       
       {/* Animated subtle glass background drift orbs (nav-10__orb) */}
       <div className="absolute inset-0 overflow-visible pointer-events-none">
@@ -79,7 +79,7 @@ export const MinimalNavbar: React.FC = () => {
 
       {/* Floating Glass Navbar (nav-10__bar) */}
       <nav
-        className="nav-10__bar pointer-events-auto relative w-full flex items-center justify-between py-2 px-3 sm:py-2.5 sm:px-5 rounded-[20px] bg-white/80 backdrop-blur-[20px] border border-white/95 shadow-[0_10px_35px_-5px_rgba(15,23,42,0.08),0_1px_2px_rgba(15,23,42,0.04)]"
+        className="nav-10__bar pointer-events-auto relative w-full flex items-center justify-between py-2 px-3 sm:py-2.5 sm:px-5 rounded-[20px] bg-white/80 backdrop-blur-[20px] border border-white/95 shadow-[0_10px_35px_-5px_rgba(15,23,42,0.08),0_1px_2px_rgba(15,23,42,0.04)] select-none"
         role="navigation"
         aria-label="Main Navigation"
       >
@@ -88,12 +88,14 @@ export const MinimalNavbar: React.FC = () => {
         <a
           href="/"
           onClick={scrollToTop}
-          className="group flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
+          className="group flex items-center gap-2.5 text-left focus:outline-none cursor-pointer active:scale-95 transition-transform"
           aria-label="Dolphin Beach Villa Home"
         >
           <img
             src="/images/dolphin_logo.svg"
             alt="Dolphin Beach Logo"
+            width="36"
+            height="36"
             className="w-8 h-8 sm:w-9 sm:h-9 rounded-[10px] shadow-xs group-hover:scale-105 transition-transform duration-300 object-contain"
           />
           
@@ -116,7 +118,7 @@ export const MinimalNavbar: React.FC = () => {
                 <a
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.id)}
-                  className={`inline-block px-3.5 py-1.5 rounded-[12px] text-[0.84rem] font-semibold transition-all duration-200 cursor-pointer ${
+                  className={`inline-block px-3.5 py-1.5 rounded-[12px] text-[0.84rem] font-semibold transition-all duration-200 cursor-pointer active:scale-95 ${
                     isActive
                       ? 'bg-black/[0.08] text-[#0f172a] font-bold shadow-2xs'
                       : 'text-[#64748b] hover:text-[#0f172a] hover:bg-black/[0.05]'
@@ -135,7 +137,7 @@ export const MinimalNavbar: React.FC = () => {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="p-1.5 rounded-[10px] text-[#0f172a] hover:bg-black/5 transition-colors md:hidden focus:outline-none cursor-pointer"
+            className="p-2 rounded-[10px] text-[#0f172a] hover:bg-black/5 active:scale-90 transition-all md:hidden focus:outline-none cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

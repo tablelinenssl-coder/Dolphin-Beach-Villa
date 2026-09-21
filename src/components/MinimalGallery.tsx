@@ -29,14 +29,14 @@ export const MinimalGallery: React.FC = () => {
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-1 sm:pb-0 sm:flex-wrap no-scrollbar">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-1 sm:pb-0 sm:flex-wrap no-scrollbar overscroll-x-contain touch-pan-x">
           {categories.map((cat) => {
             const isSelected = activeCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`cursor-pointer shrink-0 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wide uppercase transition-all duration-200 focus:outline-none ${
+                className={`cursor-pointer shrink-0 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wide uppercase transition-all duration-200 focus:outline-none select-none active:scale-95 ${
                   isSelected
                     ? "bg-[#0f172a] text-white shadow-sm scale-105"
                     : "bg-white border border-[#e2e8f0] text-[#64748b] hover:border-[#0f172a] hover:text-[#0f172a]"
@@ -69,6 +69,8 @@ export const MinimalGallery: React.FC = () => {
                 <img
                   src={item.imageUrl}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-75 group-hover:opacity-90 transition-opacity duration-300" />

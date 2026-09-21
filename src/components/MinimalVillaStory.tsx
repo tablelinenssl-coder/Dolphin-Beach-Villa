@@ -65,6 +65,8 @@ export const MinimalVillaStory: React.FC = () => {
                 <img
                   src={pillars[activeTab].image}
                   alt={pillars[activeTab].title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -87,12 +89,14 @@ export const MinimalVillaStory: React.FC = () => {
           </div>
 
           {/* Tab Selectors: order-last on mobile, order-first on desktop */}
-          <div className="lg:col-span-5 order-last lg:order-first space-y-2.5 sm:space-y-3">
+          <div className="lg:col-span-5 order-last lg:order-first space-y-2.5 sm:space-y-3" role="tablist" aria-label="Architectural Pillars">
             {pillars.map((pillar, idx) => (
               <div
                 key={idx}
+                role="tab"
+                aria-selected={activeTab === idx}
                 onClick={() => setActiveTab(idx)}
-                className={`w-full text-left p-4 sm:p-6 rounded-[14px] sm:rounded-[16px] transition-all duration-300 cursor-pointer overflow-hidden border ${
+                className={`w-full text-left p-4 sm:p-6 rounded-[14px] sm:rounded-[16px] transition-all duration-300 cursor-pointer overflow-hidden border select-none active:scale-[0.99] ${
                   activeTab === idx
                     ? 'bg-white border-[#dc2626] shadow-md ring-1 ring-[#dc2626]'
                     : 'bg-white/60 border-[#e2e8f0] hover:bg-white hover:border-[#cbd5e1]'

@@ -35,6 +35,7 @@
     overflow-x: hidden;
     /* Enable momentum scrolling on iOS */
     -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

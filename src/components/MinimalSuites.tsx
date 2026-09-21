@@ -28,7 +28,7 @@ export const MinimalSuites: React.FC = () => {
                 <button
                   key={suite.id}
                   onClick={() => setActiveSuiteId(suite.id)}
-                  className={`flex-1 sm:flex-initial px-4 sm:px-5 py-2 rounded-[8px] font-sans text-xs tracking-wider uppercase transition-all duration-200 relative cursor-pointer font-bold text-center ${
+                  className={`flex-1 sm:flex-initial px-4 sm:px-5 py-2 rounded-[8px] font-sans text-xs tracking-wider uppercase transition-all duration-200 relative cursor-pointer font-bold text-center select-none active:scale-95 ${
                     isSelected ? 'text-white' : 'text-[#64748b] hover:text-[#0f172a]'
                   }`}
                 >
@@ -63,6 +63,8 @@ export const MinimalSuites: React.FC = () => {
                 <img
                   src={selectedSuite.imageUrl}
                   alt={selectedSuite.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

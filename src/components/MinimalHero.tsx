@@ -147,27 +147,27 @@ export const MinimalHero: React.FC = () => {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 min-[440px]:grid-cols-4 sm:flex sm:flex-row gap-4 sm:gap-[clamp(20px,3vw,36px)] w-full max-lg:justify-center"
+              className="grid grid-cols-2 min-[440px]:grid-cols-4 sm:flex sm:flex-row gap-2.5 sm:gap-[clamp(20px,3vw,36px)] w-full max-lg:justify-center"
             >
-              <div className="flex flex-col gap-0.5 max-lg:items-center">
+              <div className="flex flex-col gap-0.5 items-center sm:items-start p-2.5 sm:p-0 rounded-[12px] bg-white/70 sm:bg-transparent border border-[#e2e8f0]/80 sm:border-0 shadow-2xs sm:shadow-none">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   17m
                 </dd>
                 <dt className="text-[0.72rem] sm:text-[0.76rem] font-semibold text-[#64748b]">Infinity pool</dt>
               </div>
-              <div className="flex flex-col gap-0.5 max-lg:items-center">
+              <div className="flex flex-col gap-0.5 items-center sm:items-start p-2.5 sm:p-0 rounded-[12px] bg-white/70 sm:bg-transparent border border-[#e2e8f0]/80 sm:border-0 shadow-2xs sm:shadow-none">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   2.47
                 </dd>
                 <dt className="text-[0.72rem] sm:text-[0.76rem] font-semibold text-[#64748b]">Acres private</dt>
               </div>
-              <div className="flex flex-col gap-0.5 max-lg:items-center">
+              <div className="flex flex-col gap-0.5 items-center sm:items-start p-2.5 sm:p-0 rounded-[12px] bg-white/70 sm:bg-transparent border border-[#e2e8f0]/80 sm:border-0 shadow-2xs sm:shadow-none">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   2
                 </dd>
                 <dt className="text-[0.72rem] sm:text-[0.76rem] font-semibold text-[#64748b]">Master suites</dt>
               </div>
-              <div className="flex flex-col gap-0.5 max-lg:items-center">
+              <div className="flex flex-col gap-0.5 items-center sm:items-start p-2.5 sm:p-0 rounded-[12px] bg-white/70 sm:bg-transparent border border-[#e2e8f0]/80 sm:border-0 shadow-2xs sm:shadow-none">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   8
                 </dd>
@@ -186,7 +186,7 @@ export const MinimalHero: React.FC = () => {
           >
             {/* Desktop Presentation: 3x3 Asymmetrical Collage Grid */}
             <div className="hidden md:grid [grid-template-columns:repeat(3,1fr)] [grid-template-rows:repeat(3,1fr)] gap-3 lg:gap-3.5 aspect-[1.1/1] min-h-[460px] lg:min-h-[560px]">
-              {collageItems.map((item) => (
+              {collageItems.map((item, idx) => (
                 <div
                   key={item.id}
                   className={`group relative isolate ${item.gridClass} flex items-end p-3.5 sm:p-4 rounded-[16px] overflow-hidden bg-[#0f172a] shadow-sm hover:shadow-md transition-shadow duration-300 after:absolute after:inset-0 after:z-1 after:bg-gradient-to-t after:from-black/80 after:via-black/20 after:to-transparent`}
@@ -194,6 +194,9 @@ export const MinimalHero: React.FC = () => {
                   <img
                     src={item.image}
                     alt={item.alt}
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={idx === 0 ? "high" : "auto"}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute top-3 right-3 z-2">
@@ -217,6 +220,9 @@ export const MinimalHero: React.FC = () => {
                 <img
                   src={collageItems[0].image}
                   alt={collageItems[0].alt}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute top-3.5 right-3.5 z-2">
@@ -244,6 +250,8 @@ export const MinimalHero: React.FC = () => {
                     <img
                       src={item.image}
                       alt={item.alt}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute top-2 right-2 z-2">

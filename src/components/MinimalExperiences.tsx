@@ -37,6 +37,8 @@ export const MinimalExperiences: React.FC = () => {
                     <img
                       src={exp.imageUrl}
                       alt={exp.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     {exp.badge && (
