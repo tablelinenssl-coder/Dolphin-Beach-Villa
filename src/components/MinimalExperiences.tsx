@@ -4,24 +4,24 @@ import { EXPERIENCES } from '../data/propertyData';
 
 export const MinimalExperiences: React.FC = () => {
   return (
-    <section id="experiences" className="relative bg-[#fafaf7] text-[#0f172a] py-24 md:py-32 px-6 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section id="experiences" className="relative bg-[#fafaf7] text-[#0f172a] py-16 md:py-32 px-4 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
+      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
         
         {/* Header Stack */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-3 max-w-xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
+          <div className="space-y-2.5 max-w-xl">
             <h2 className="text-[clamp(2rem,3.8vw,3.2rem)] font-black tracking-[-0.03em] leading-[1.05] text-[#0f172a]">
               Wild waters, lagoon winds &amp;<br />
               <em className="font-serif italic font-bold text-[#dc2626]">ancient soil.</em>
             </h2>
           </div>
-          <p className="font-sans text-sm sm:text-base text-[#64748b] max-w-sm leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#64748b] max-w-sm leading-relaxed">
             This quiet coastal haven remains untouched, where marine life, offshore trade winds, and ocean stillness move at their own rhythm.
           </p>
         </div>
 
         {/* Minimal Grid with Native Elements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {EXPERIENCES.slice(0, 3).map((exp, idx) => (
             <motion.div
               key={exp.id}
@@ -33,26 +33,26 @@ export const MinimalExperiences: React.FC = () => {
             >
               <div className="overflow-hidden border border-[#e2e8f0] bg-white rounded-[16px] shadow-sm flex flex-col justify-between group w-full hover:shadow-md transition-all duration-300">
                 <div>
-                  <div className="relative h-64 overflow-hidden bg-[#0f172a]">
+                  <div className="relative h-52 sm:h-64 overflow-hidden bg-[#0f172a]">
                     <img
                       src={exp.imageUrl}
                       alt={exp.title}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     {exp.badge && (
-                      <div className="absolute top-3.5 right-3.5">
-                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-[#0f172a] text-white shadow-sm">
+                      <div className="absolute top-3 right-3 sm:top-3.5 sm:right-3.5">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-[#0f172a] text-white shadow-sm">
                           {exp.badge}
                         </span>
                       </div>
                     )}
                   </div>
 
-                  <div className="p-6 sm:p-7 space-y-2.5">
+                  <div className="p-5 sm:p-7 space-y-2">
                     <span className="font-mono text-[9px] tracking-widest text-[#dc2626] uppercase block font-bold">
                       {exp.subtitle}
                     </span>
-                    <h3 className="font-sans text-xl sm:text-2xl text-[#0f172a] font-bold group-hover:text-[#dc2626] transition-colors">
+                    <h3 className="font-sans text-lg sm:text-2xl text-[#0f172a] font-bold group-hover:text-[#dc2626] transition-colors">
                       {exp.title}
                     </h3>
                     <p className="font-sans text-xs sm:text-sm text-[#64748b] leading-relaxed">
@@ -121,7 +121,7 @@ export const MinimalExperiences: React.FC = () => {
                 badge: "Wildlife"
               }
             ].map((expedition, idx) => (
-              <div key={idx} className="bg-white border border-[#e2e8f0] rounded-[14px] hover:border-black/20 transition-all p-5 sm:p-6 flex flex-col justify-between h-full space-y-3">
+              <div key={idx} className="bg-white border border-[#e2e8f0] rounded-[14px] hover:border-black/20 transition-all p-4 sm:p-6 flex flex-col justify-between h-full space-y-3">
                 <div className="flex items-start justify-between gap-2">
                   <h4 className="font-sans text-base sm:text-lg font-bold text-[#0f172a]">
                     {expedition.title}

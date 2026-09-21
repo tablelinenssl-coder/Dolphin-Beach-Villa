@@ -65,13 +65,13 @@ export const MinimalHero: React.FC = () => {
   return (
     <>
       <section
-        className="tcg-12 w-full min-h-svh flex items-center justify-center bg-[#fafaf7] font-sans text-[#0f172a] px-[clamp(20px,3vw,48px)] py-[clamp(28px,4vw,56px)] pt-24 sm:pt-28 lg:pt-32"
+        className="tcg-12 w-full min-h-svh flex items-center justify-center bg-[#fafaf7] font-sans text-[#0f172a] px-4 sm:px-8 lg:px-12 py-8 pt-24 sm:pt-28 lg:pt-32"
         aria-label="Hero photo collage grid"
       >
-        <div className="w-full max-w-[1200px] grid [grid-template-columns:1fr_1.2fr] max-[900px]:[grid-template-columns:1fr] items-center gap-[clamp(24px,3.4vw,56px)] max-[900px]:gap-8">
+        <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-12">
           
           {/* Left Column: Editorial Brand & Action Stack */}
-          <div className="flex flex-col gap-4 max-w-[520px] max-[900px]:max-w-none max-[900px]:items-center max-[900px]:text-center">
+          <div className="lg:col-span-6 flex flex-col gap-4 max-w-[540px] max-lg:max-w-none max-lg:items-center max-lg:text-center">
             
             {/* Location Tag */}
             <motion.div
@@ -90,7 +90,7 @@ export const MinimalHero: React.FC = () => {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[clamp(2.2rem,4.5vw,3.6rem)] font-black tracking-[-0.03em] leading-[1.04] text-[#0f172a]"
+              className="text-[clamp(2.1rem,5.5vw,3.6rem)] font-black tracking-[-0.03em] leading-[1.06] text-[#0f172a]"
             >
               Where the ocean<br />
               <em className="font-serif italic font-bold text-[#dc2626]">becomes home.</em>
@@ -101,7 +101,7 @@ export const MinimalHero: React.FC = () => {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-[46ch] text-[clamp(0.96rem,1.2vw,1.1rem)] leading-[1.55] text-[#64748b] text-pretty"
+              className="max-w-[46ch] text-[clamp(0.92rem,1.2vw,1.1rem)] leading-[1.6] text-[#64748b] text-pretty"
             >
               A private 2.47-acre coastal sanctuary on Sri Lanka's secluded western coastline. Featuring a 17-metre sea-facing lap pool, two vaulted en-suite master suites, and unhurried beachfront living.
             </motion.p>
@@ -111,7 +111,7 @@ export const MinimalHero: React.FC = () => {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-1 flex flex-wrap items-center gap-4 max-[900px]:justify-center"
+              className="mt-1 flex flex-wrap items-center gap-4 max-lg:justify-center"
             >
               <a
                 href="#villa"
@@ -126,7 +126,7 @@ export const MinimalHero: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-[12px] bg-white border border-[#e2e8f0] shadow-xs text-xs sm:text-sm text-[#64748b] font-sans max-[900px]:justify-center hover:border-black/20 transition-colors"
+              className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-[12px] bg-white border border-[#e2e8f0] shadow-xs text-xs sm:text-sm text-[#64748b] font-sans max-lg:justify-center hover:border-black/20 transition-colors w-full sm:w-auto"
             >
               <div className="w-6 h-6 rounded-[7px] bg-[#fbe3e3] flex items-center justify-center shrink-0 text-[#dc2626]">
                 <Plane className="w-3.5 h-3.5" />
@@ -143,27 +143,27 @@ export const MinimalHero: React.FC = () => {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 min-[460px]:grid-cols-4 sm:flex sm:flex-row gap-x-6 gap-y-3 sm:gap-[clamp(20px,3vw,36px)]"
+              className="grid grid-cols-2 min-[440px]:grid-cols-4 sm:flex sm:flex-row gap-4 sm:gap-[clamp(20px,3vw,36px)] w-full max-lg:justify-center"
             >
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col gap-0.5 max-lg:items-center">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   17m
                 </dd>
                 <dt className="text-[0.72rem] sm:text-[0.76rem] font-semibold text-[#64748b]">Infinity pool</dt>
               </div>
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col gap-0.5 max-lg:items-center">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   2.47
                 </dd>
                 <dt className="text-[0.72rem] sm:text-[0.76rem] font-semibold text-[#64748b]">Acres private</dt>
               </div>
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col gap-0.5 max-lg:items-center">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   2
                 </dd>
                 <dt className="text-[0.72rem] sm:text-[0.76rem] font-semibold text-[#64748b]">Master suites</dt>
               </div>
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col gap-0.5 max-lg:items-center">
                 <dd className="text-xl sm:text-2xl font-black tracking-[-0.02em] tabular-nums text-[#0f172a]">
                   8
                 </dd>
@@ -172,41 +172,89 @@ export const MinimalHero: React.FC = () => {
             </motion.dl>
           </div>
 
-          {/* Right Column: 3x3 Photo Collage Grid with Real Graphics */}
+          {/* Right Column: Visual Stage */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid [grid-template-columns:repeat(3,1fr)] [grid-template-rows:repeat(3,1fr)] gap-[clamp(10px,1.2vw,16px)] aspect-[1.1/1] min-h-[clamp(380px,46vw,620px)] max-[900px]:aspect-[1.3/1] max-[900px]:min-h-[360px] max-[560px]:aspect-square"
+            className="lg:col-span-6 w-full"
             aria-label="Featured estate views"
           >
-            {collageItems.map((item) => (
-              <div
-                key={item.id}
-                className={`group relative isolate ${item.gridClass} flex items-end p-3.5 sm:p-4 rounded-[16px] overflow-hidden bg-[#0f172a] shadow-sm hover:shadow-md transition-shadow duration-300 after:absolute after:inset-0 after:z-1 after:bg-gradient-to-t after:from-black/80 after:via-black/20 after:to-transparent`}
-              >
-                {/* Image */}
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
+            {/* Desktop Presentation: 3x3 Asymmetrical Collage Grid */}
+            <div className="hidden md:grid [grid-template-columns:repeat(3,1fr)] [grid-template-rows:repeat(3,1fr)] gap-3 lg:gap-3.5 aspect-[1.1/1] min-h-[460px] lg:min-h-[560px]">
+              {collageItems.map((item) => (
+                <div
+                  key={item.id}
+                  className={`group relative isolate ${item.gridClass} flex items-end p-3.5 sm:p-4 rounded-[16px] overflow-hidden bg-[#0f172a] shadow-sm hover:shadow-md transition-shadow duration-300 after:absolute after:inset-0 after:z-1 after:bg-gradient-to-t after:from-black/80 after:via-black/20 after:to-transparent`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute top-3 right-3 z-2">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-xs text-white text-[9px] uppercase font-bold tracking-wider group-hover:text-[#dc2626] transition-colors">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <div className="relative z-2 flex items-center justify-between w-full">
+                    <span className="text-white text-[0.88rem] sm:text-[0.96rem] font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] leading-tight line-clamp-1">
+                      {item.title}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-                {/* Top Right Pill Badge */}
-                <div className="absolute top-3 right-3 z-2">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-xs text-white text-[9px] uppercase font-bold tracking-wider group-hover:text-[#dc2626] transition-colors">
-                    {item.badge}
+            {/* Mobile Presentation (< 768px): Tailored Touch Layout */}
+            <div className="flex flex-col gap-3 md:hidden w-full">
+              {/* Primary Villa Feature Card */}
+              <div className="relative h-[250px] sm:h-[300px] rounded-[18px] overflow-hidden bg-[#0f172a] shadow-sm flex items-end p-4 after:absolute after:inset-0 after:z-1 after:bg-gradient-to-t after:from-black/85 after:via-black/25 after:to-transparent">
+                <img
+                  src={collageItems[0].image}
+                  alt={collageItems[0].alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute top-3.5 right-3.5 z-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#0f172a]/90 backdrop-blur-xs text-white text-[9px] font-mono uppercase font-bold tracking-wider">
+                    {collageItems[0].badge}
                   </span>
                 </div>
-
-                {/* Bottom Photo Title */}
-                <div className="relative z-2 flex items-center justify-between w-full">
-                  <span className="text-white text-[0.88rem] sm:text-[0.96rem] font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.6)] leading-tight line-clamp-1">
-                    {item.title}
-                  </span>
+                <div className="relative z-2 space-y-0.5">
+                  <h3 className="text-white text-base sm:text-lg font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+                    {collageItems[0].title}
+                  </h3>
+                  <p className="text-white/80 text-xs line-clamp-1">
+                    {collageItems[0].subtitle}
+                  </p>
                 </div>
               </div>
-            ))}
+
+              {/* 2x2 Clean Sub-Grid for Supporting Views */}
+              <div className="grid grid-cols-2 gap-2.5">
+                {collageItems.slice(1).map((item) => (
+                  <div
+                    key={item.id}
+                    className="relative h-[130px] sm:h-[150px] rounded-[14px] overflow-hidden bg-[#0f172a] shadow-xs flex items-end p-2.5 after:absolute after:inset-0 after:z-1 after:bg-gradient-to-t after:from-black/80 after:via-black/20 after:to-transparent"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute top-2 right-2 z-2">
+                      <span className="px-2 py-0.5 rounded-full bg-black/60 text-white text-[8px] font-mono uppercase font-bold tracking-wider">
+                        {item.badge}
+                      </span>
+                    </div>
+                    <span className="relative z-2 text-white text-xs font-bold [text-shadow:0_1px_2px_rgba(0,0,0,0.6)] line-clamp-1 leading-tight">
+                      {item.title}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </motion.div>
 
         </div>

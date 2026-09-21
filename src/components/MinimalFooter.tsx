@@ -6,11 +6,11 @@ interface MinimalFooterProps {}
 
 export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
   return (
-    <footer id="contact" className="relative bg-[#fafaf7] text-[#0f172a] pt-20 pb-16 px-6 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <footer id="contact" className="relative bg-[#fafaf7] text-[#0f172a] pt-16 pb-12 px-4 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Banner CTA */}
-        <div className="bg-white border border-[#e2e8f0] rounded-[16px] shadow-sm p-8 sm:p-12 text-center md:text-left hover:shadow-md transition-shadow">
+        <div className="bg-white border border-[#e2e8f0] rounded-[16px] shadow-sm p-6 sm:p-12 text-center md:text-left hover:shadow-md transition-shadow">
           <div className="space-y-2.5 max-w-xl">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl text-[#0f172a] font-black tracking-tight">
               Enter a sanctuary where the sea <em className="font-serif italic font-bold text-[#dc2626]">sets the pace.</em>
@@ -74,8 +74,8 @@ export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
             </span>
             <ul className="space-y-2 text-xs font-sans text-[#64748b] font-medium">
               <li className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#dc2626]" />
-                <a href={`mailto:${PROPERTY_CONFIG.contact.email}`} className="hover:text-[#0f172a] transition-colors">
+                <Mail className="w-3.5 h-3.5 text-[#dc2626] shrink-0" />
+                <a href={`mailto:${PROPERTY_CONFIG.contact.email}`} className="hover:text-[#0f172a] transition-colors break-all">
                   {PROPERTY_CONFIG.contact.email}
                 </a>
               </li>

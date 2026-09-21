@@ -12,18 +12,18 @@ export const MinimalGallery: React.FC = () => {
     : GALLERY_ITEMS.filter(item => item.category?.toLowerCase() === activeCategory.toLowerCase());
 
   return (
-    <section id="gallery" className="relative bg-[#fafaf7] text-[#0f172a] py-24 md:py-32 px-6 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto space-y-10">
+    <section id="gallery" className="relative bg-[#fafaf7] text-[#0f172a] py-16 md:py-32 px-4 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
+      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
+          <div className="space-y-2.5">
             <h2 className="text-[clamp(2rem,3.8vw,3.2rem)] font-black tracking-[-0.03em] leading-[1.05] text-[#0f172a]">
               Moments of light,<br />
               <em className="font-serif italic font-bold text-[#dc2626]">shade &amp; salt.</em>
             </h2>
           </div>
-          <p className="font-sans text-sm text-[#64748b] max-w-sm leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-[#64748b] max-w-sm leading-relaxed">
             A curated visual chronicle of raw timber, sculpted colonnades, and open Indian Ocean horizons.
           </p>
         </div>
@@ -36,7 +36,7 @@ export const MinimalGallery: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`cursor-pointer shrink-0 px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] font-mono font-bold tracking-wide uppercase transition-all duration-200 focus:outline-none ${
+                className={`cursor-pointer shrink-0 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wide uppercase transition-all duration-200 focus:outline-none ${
                   isSelected
                     ? "bg-[#0f172a] text-white shadow-sm scale-105"
                     : "bg-white border border-[#e2e8f0] text-[#64748b] hover:border-[#0f172a] hover:text-[#0f172a]"
@@ -49,7 +49,7 @@ export const MinimalGallery: React.FC = () => {
         </div>
 
         {/* Enlarged Editorial Gallery Grid — Immersive Native Presentation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
           {filteredItems.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -60,10 +60,10 @@ export const MinimalGallery: React.FC = () => {
               className={item.span === 'col-span-2' && activeCategory === 'All' ? 'md:col-span-2' : ''}
             >
               <div
-                className={`group relative rounded-[20px] overflow-hidden shadow-sm hover:shadow-md border border-[#e2e8f0] bg-[#0f172a] transition-all duration-300 w-full ${
+                className={`group relative rounded-[18px] sm:rounded-[20px] overflow-hidden shadow-sm hover:shadow-md border border-[#e2e8f0] bg-[#0f172a] transition-all duration-300 w-full ${
                   item.span === 'col-span-2' && activeCategory === 'All' 
-                    ? 'h-[380px] sm:h-[480px] lg:h-[560px]' 
-                    : 'h-[340px] sm:h-[420px] lg:h-[480px]'
+                    ? 'h-[300px] sm:h-[440px] lg:h-[560px]' 
+                    : 'h-[270px] sm:h-[380px] lg:h-[480px]'
                 }`}
               >
                 <img
@@ -73,14 +73,14 @@ export const MinimalGallery: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-75 group-hover:opacity-90 transition-opacity duration-300" />
                 
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-[#0f172a]/90 backdrop-blur-xs text-white shadow-sm">
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+                  <span className="inline-flex items-center px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-[#0f172a]/90 backdrop-blur-xs text-white shadow-sm">
                     {item.category}
                   </span>
                 </div>
 
-                <div className="absolute bottom-6 left-6 right-6 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300 text-white z-10 space-y-1">
-                  <h3 className="font-sans text-xl sm:text-2xl font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300 text-white z-10 space-y-1">
+                  <h3 className="font-sans text-lg sm:text-2xl font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
                     {item.title}
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-white/85 line-clamp-2 max-w-xl">

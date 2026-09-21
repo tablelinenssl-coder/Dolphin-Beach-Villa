@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 export const MinimalStatement: React.FC = () => {
   return (
-    <section id="statement" className="relative bg-[#fafaf7] text-[#0f172a] py-24 md:py-32 px-6 sm:px-12 lg:px-20 border-t border-[#e2e8f0] overflow-hidden">
+    <section id="statement" className="relative bg-[#fafaf7] text-[#0f172a] py-16 md:py-32 px-4 sm:px-12 lg:px-20 border-t border-[#e2e8f0] overflow-hidden">
       
-      <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
         
 
 
