@@ -115,7 +115,23 @@ export const MinimalHero: React.FC = () => {
             >
               <a
                 href="#villa"
-                className="inline-flex items-center min-h-11 text-[0.94rem] font-semibold text-[#0f172a] underline decoration-1 underline-offset-4 hover:text-[#dc2626] focus-visible:outline-2 focus-visible:outline-[#dc2626] focus-visible:outline-offset-3 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('villa');
+                  const lenis = (window as any).__lenis;
+                  if (el) {
+                    if (lenis) {
+                      lenis.scrollTo(el, { offset: -80, duration: 2.0 });
+                    } else {
+                      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+                      window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                  }
+                  if (window.location.hash) {
+                    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                  }
+                }}
+                className="inline-flex items-center min-h-11 text-[0.94rem] font-semibold text-[#0f172a] underline decoration-1 underline-offset-4 hover:text-[#dc2626] focus-visible:outline-2 focus-visible:outline-[#dc2626] focus-visible:outline-offset-3 transition-colors cursor-pointer"
               >
                 Explore the estate
               </a>

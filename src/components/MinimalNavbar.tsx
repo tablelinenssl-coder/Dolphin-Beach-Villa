@@ -36,6 +36,37 @@ export const MinimalNavbar: React.FC = () => {
     { label: "Location", href: "#location", id: "location" },
   ];
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.scrollTo(0, { duration: 1.5 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  };
+
+  const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    setIsMobileOpen(false);
+    const el = document.getElementById(sectionId);
+    const lenis = (window as any).__lenis;
+    if (el) {
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -80, duration: 2.0 });
+      } else {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 sm:px-6 pt-3.5 sm:pt-5 max-w-[1240px] mx-auto">
       
@@ -55,7 +86,8 @@ export const MinimalNavbar: React.FC = () => {
         
         {/* Logo & Glyph (nav-10__logo) */}
         <a
-          href="#"
+          href="/"
+          onClick={scrollToTop}
           className="group flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
           aria-label="Dolphin Beach Villa Home"
         >
@@ -83,7 +115,8 @@ export const MinimalNavbar: React.FC = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`inline-block px-3.5 py-1.5 rounded-[12px] text-[0.84rem] font-semibold transition-all duration-200 ${
+                  onClick={(e) => scrollToSection(e, link.id)}
+                  className={`inline-block px-3.5 py-1.5 rounded-[12px] text-[0.84rem] font-semibold transition-all duration-200 cursor-pointer ${
                     isActive
                       ? 'bg-black/[0.08] text-[#0f172a] font-bold shadow-2xs'
                       : 'text-[#64748b] hover:text-[#0f172a] hover:bg-black/[0.05]'
@@ -137,8 +170,8 @@ export const MinimalNavbar: React.FC = () => {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      onClick={() => setIsMobileOpen(false)}
-                      className="block px-3 py-2 rounded-[10px] text-base font-bold text-[#0f172a] hover:bg-black/5 hover:text-[#dc2626] transition-colors"
+                      onClick={(e) => scrollToSection(e, link.id)}
+                      className="block px-3 py-2 rounded-[10px] text-base font-bold text-[#0f172a] hover:bg-black/5 hover:text-[#dc2626] transition-colors cursor-pointer"
                     >
                       {link.label}
                     </a>

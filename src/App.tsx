@@ -28,6 +28,9 @@ export const App: React.FC = () => {
       infinite: false,
     });
 
+    // Store lenis on window for direct access across navigation triggers
+    (window as any).__lenis = lenis;
+
     let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
@@ -35,26 +38,56 @@ export const App: React.FC = () => {
     }
     rafId = requestAnimationFrame(raf);
 
-    // Intercept internal hash links to trigger slow smooth scroll
+    // Ensure the '#' never appears in the browser search / URL bar
+    const stripHash = () => {
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    };
+
+    // Strip hash immediately on mount
+    stripHash();
+
+    // Intercept internal hash links to trigger smooth scroll while keeping the search/URL bar completely free of '#'
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
       if (!anchor) return;
+      
+      // Always prevent default navigation so the browser NEVER appends '#' to the search bar
+      e.preventDefault();
+
       const hash = anchor.getAttribute('href');
-      if (!hash || hash === '#') return;
-      const el = document.querySelector(hash) as HTMLElement | null;
-      if (el) {
-        e.preventDefault();
-        lenis.scrollTo(el, { offset: -80, duration: 2.2 });
+      if (!hash || hash === '#') {
+        lenis.scrollTo(0, { duration: 1.5 });
+      } else {
+        try {
+          const el = document.querySelector(hash) as HTMLElement | null;
+          if (el) {
+            lenis.scrollTo(el, { offset: -80, duration: 2.0 });
+          }
+        } catch {
+          // ignore selector errors
+        }
       }
+
+      // Guarantee the URL bar stays clean without '#'
+      stripHash();
+      setTimeout(stripHash, 10);
+      setTimeout(stripHash, 100);
     };
 
     document.addEventListener('click', handleAnchorClick);
+    window.addEventListener('hashchange', stripHash);
+    window.addEventListener('popstate', stripHash);
 
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      window.removeEventListener('hashchange', stripHash);
+      window.removeEventListener('popstate', stripHash);
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete (window as any).__lenis;
     };
   }, []);
 

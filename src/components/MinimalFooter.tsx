@@ -5,6 +5,23 @@ import { PROPERTY_CONFIG } from '../data/propertyData';
 interface MinimalFooterProps {}
 
 export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
+  const handleScrollTo = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    const el = document.getElementById(sectionId);
+    const lenis = (window as any).__lenis;
+    if (el) {
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -80, duration: 2.0 });
+      } else {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  };
+
   return (
     <footer id="contact" className="relative bg-[#fafaf7] text-[#0f172a] pt-16 pb-12 px-4 sm:px-10 lg:px-16 border-t border-[#e2e8f0]">
       <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
@@ -48,11 +65,11 @@ export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
               Sanctuary
             </span>
             <ul className="space-y-2 text-xs font-sans text-[#64748b] font-medium">
-              <li><a href="#villa" className="hover:text-[#dc2626] transition-colors">The Villa</a></li>
-              <li><a href="#suites" className="hover:text-[#dc2626] transition-colors">Suites</a></li>
-              <li><a href="#experiences" className="hover:text-[#dc2626] transition-colors">Experiences</a></li>
-              <li><a href="#gallery" className="hover:text-[#dc2626] transition-colors">Gallery</a></li>
-              <li><a href="#location" className="hover:text-[#dc2626] transition-colors">Location</a></li>
+              <li><a href="#villa" onClick={(e) => handleScrollTo(e, 'villa')} className="hover:text-[#dc2626] transition-colors cursor-pointer">The Villa</a></li>
+              <li><a href="#suites" onClick={(e) => handleScrollTo(e, 'suites')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Suites</a></li>
+              <li><a href="#experiences" onClick={(e) => handleScrollTo(e, 'experiences')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Experiences</a></li>
+              <li><a href="#gallery" onClick={(e) => handleScrollTo(e, 'gallery')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Gallery</a></li>
+              <li><a href="#location" onClick={(e) => handleScrollTo(e, 'location')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Location</a></li>
             </ul>
           </div>
 
@@ -61,10 +78,10 @@ export const MinimalFooter: React.FC<MinimalFooterProps> = () => {
               Pursuits
             </span>
             <ul className="space-y-2 text-xs font-sans text-[#64748b] font-medium">
-              <li><a href="#experiences" className="hover:text-[#dc2626] transition-colors">Ocean Beach</a></li>
-              <li><a href="#experiences" className="hover:text-[#dc2626] transition-colors">Spinner Dolphins</a></li>
-              <li><a href="#experiences" className="hover:text-[#dc2626] transition-colors">Flatwater Kitesurfing</a></li>
-              <li><a href="#experiences" className="hover:text-[#dc2626] transition-colors">Wilpattu Safari</a></li>
+              <li><a href="#experiences" onClick={(e) => handleScrollTo(e, 'experiences')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Ocean Beach</a></li>
+              <li><a href="#experiences" onClick={(e) => handleScrollTo(e, 'experiences')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Spinner Dolphins</a></li>
+              <li><a href="#experiences" onClick={(e) => handleScrollTo(e, 'experiences')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Flatwater Kitesurfing</a></li>
+              <li><a href="#experiences" onClick={(e) => handleScrollTo(e, 'experiences')} className="hover:text-[#dc2626] transition-colors cursor-pointer">Wilpattu Safari</a></li>
             </ul>
           </div>
 
